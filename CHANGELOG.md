@@ -16,3 +16,9 @@ All notable changes to this project are documented here. The format follows
 - Smart select hotkey (`Mod-a` by default) and the "Select code in code block" command.
 - English / Simplified Chinese settings UI.
 - Full TypeScript source, build pipeline and release workflow reconstructed from the released plugin bundle.
+
+### Fixed
+
+- Settings headings now use `new Setting(...).setName(...).setHeading()` for a consistent Obsidian UI.
+- All widget DOM nodes now use Obsidian's `createEl` helpers instead of `document.createElement`.
+- Release workflow publishes build-provenance attestations for `main.js`, `manifest.json` and `styles.css`.

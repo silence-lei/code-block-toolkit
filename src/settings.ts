@@ -56,7 +56,7 @@ export class CodeBlockToolkitSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		containerEl.createEl('h2', { text: 'General' });
+		new Setting(containerEl).setName('General').setHeading();
 
 		new Setting(containerEl)
 			.setName(t('settingShowAllLanguages'))
@@ -136,7 +136,7 @@ export class CodeBlockToolkitSettingTab extends PluginSettingTab {
 	}
 
 	private renderCustomLanguages(containerEl: HTMLElement): void {
-		containerEl.createEl('h2', { text: t('customLangTitle') });
+		new Setting(containerEl).setName(t('customLangTitle')).setHeading();
 		containerEl.createEl('p', { text: t('customLangDesc') });
 
 		const addSection = containerEl.createDiv();
@@ -174,7 +174,7 @@ export class CodeBlockToolkitSettingTab extends PluginSettingTab {
 					this.display();
 				}));
 
-		containerEl.createEl('h3', { text: t('customLangList') });
+		new Setting(containerEl).setName(t('customLangList')).setHeading();
 		const list = containerEl.createDiv();
 		const languages = this.plugin.settings.customLanguages;
 
@@ -201,7 +201,7 @@ export class CodeBlockToolkitSettingTab extends PluginSettingTab {
 			}
 		}
 
-		containerEl.createEl('h3', { text: t('customLangBatchImport') });
+		new Setting(containerEl).setName(t('customLangBatchImport')).setHeading();
 		containerEl.createEl('p', {
 			text: t('customLangBatchImportDesc'),
 			cls: 'setting-item-description',
@@ -240,7 +240,7 @@ export class CodeBlockToolkitSettingTab extends PluginSettingTab {
 					const json = JSON.stringify(this.plugin.settings.customLanguages, null, 2);
 					const blob = new Blob([json], { type: 'application/json' });
 					const url = URL.createObjectURL(blob);
-					const anchor = document.createElement('a');
+					const anchor = createEl('a');
 					anchor.href = url;
 					anchor.download = 'code-block-toolkit-languages.json';
 					anchor.click();
@@ -251,7 +251,7 @@ export class CodeBlockToolkitSettingTab extends PluginSettingTab {
 			.addButton((button) => button
 				.setButtonText(t('customLangImportConfig'))
 				.onClick(() => {
-					const input = document.createElement('input');
+					const input = createEl('input');
 					input.type = 'file';
 					input.accept = '.json,application/json';
 					input.onchange = async (event: Event) => {

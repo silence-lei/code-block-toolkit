@@ -50,7 +50,7 @@ class LineNumberWidget extends WidgetType {
 	}
 
 	toDOM(): HTMLElement {
-		const element = document.createElement('span');
+		const element = createEl('span');
 		element.className = 'cbt-line-number';
 		element.textContent = String(this.lineNum);
 		element.contentEditable = 'false';
@@ -65,7 +65,7 @@ class LineNumberWidget extends WidgetType {
 /** Forces a visible gap after an expanded code block. */
 class BlockSpacerWidget extends WidgetType {
 	toDOM(): HTMLElement {
-		const element = document.createElement('div');
+		const element = createEl('div');
 		element.className = 'cbt-block-spacer';
 		return element;
 	}
@@ -96,15 +96,15 @@ class HeaderWidget extends WidgetType {
 	}
 
 	toDOM(view: EditorView): HTMLElement {
-		const wrap = document.createElement('span');
+		const wrap = createEl('span');
 		wrap.className = 'cbt-header-wrap'
 			+ (this.clickToEdit && this.enableFolding ? ' is-editable' : '');
 
 		if (this.enableFolding) {
-			const indicator = document.createElement('span');
+			const indicator = createEl('span');
 			indicator.className = 'cbt-fold-indicator' + (this.isFolded ? ' is-folded' : '');
 			indicator.contentEditable = 'false';
-			const arrow = document.createElement('span');
+			const arrow = createEl('span');
 			arrow.className = 'cbt-fold-arrow';
 			indicator.appendChild(arrow);
 			wrap.appendChild(indicator);
@@ -120,7 +120,7 @@ class HeaderWidget extends WidgetType {
 		}
 
 		if (this.isFolded && this.enableFolding) {
-			const label = document.createElement('span');
+			const label = createEl('span');
 			label.className = 'cbt-lang-label';
 			label.textContent = this.language || 'text';
 			label.contentEditable = 'false';
@@ -145,7 +145,7 @@ class HeaderWidget extends WidgetType {
 
 			const block = findCodeBlockByLine(view.state, this.lineNumber);
 			if (block) {
-				const summary = document.createElement('span');
+				const summary = createEl('span');
 				summary.className = 'cbt-fold-summary';
 				summary.textContent = foldSummary(getContentLineCount(view.state, block));
 				summary.contentEditable = 'false';
@@ -154,14 +154,14 @@ class HeaderWidget extends WidgetType {
 		}
 
 		if (this.showCopyButton) {
-			const button = document.createElement('span');
+			const button = createEl('span');
 			button.className = 'cbt-copy-btn';
 			button.setAttribute('aria-label', 'Copy');
 			button.contentEditable = 'false';
-			const copyIcon = document.createElement('span');
+			const copyIcon = createEl('span');
 			copyIcon.className = 'cbt-copy-icon';
 			button.appendChild(copyIcon);
-			const checkIcon = document.createElement('span');
+			const checkIcon = createEl('span');
 			checkIcon.className = 'cbt-check-icon';
 			button.appendChild(checkIcon);
 			wrap.appendChild(button);

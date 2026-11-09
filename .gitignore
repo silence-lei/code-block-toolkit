@@ -15,3 +15,6 @@ data.json
 
 # Note: main.js IS committed. It is the release artifact that must also be
 # attached to every GitHub Release for the community plugin directory.
+
+# WorkBuddy workspace data (local notes, never publish)
+.workbuddy/
