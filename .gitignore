@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Editor / OS
+.vscode/
+.idea/
+*.iml
+.DS_Store
+
+# Local Obsidian vault data (settings are per-user, never commit them)
+data.json
+
+# Source maps
+*.map
+
+# Note: main.js IS committed. It is the release artifact that must also be
+# attached to every GitHub Release for the community plugin directory.

@@ -1,0 +1,388 @@
+/* ============================================================
+   Code Block Toolkit — Styles
+   ============================================================ */
+
+/* -----------------------------------------------------------
+   Language Suggest Panel
+   ----------------------------------------------------------- */
+
+.cbt-suggest-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.cbt-suggest-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  gap: 8px;
+  transition: background-color 0.1s ease;
+}
+
+.cbt-suggest-item:hover,
+.cbt-suggest-item.is-selected {
+  background-color: var(--background-modifier-hover);
+}
+
+.cbt-suggest-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-monospace);
+  color: #fff;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cbt-suggest-badge--blue { background-color: #3b82f6; }
+.cbt-suggest-badge--cyan { background-color: #06b6d4; }
+.cbt-suggest-badge--green { background-color: #22c55e; }
+.cbt-suggest-badge--orange { background-color: #f97316; }
+.cbt-suggest-badge--red { background-color: #ef4444; }
+.cbt-suggest-badge--purple { background-color: #a855f7; }
+.cbt-suggest-badge--pink { background-color: #ec4899; }
+.cbt-suggest-badge--yellow { background-color: #eab308; color: #1f2937; }
+.cbt-suggest-badge--teal { background-color: #14b8a6; }
+.cbt-suggest-badge--slate { background-color: #64748b; }
+.cbt-suggest-badge--brown { background-color: #a16207; }
+.cbt-suggest-badge--indigo { background-color: #6366f1; }
+
+.cbt-suggest-name {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cbt-suggest-highlight {
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+.cbt-suggest-custom {
+  font-size: 10px;
+  color: var(--text-muted);
+  background-color: var(--background-modifier-form-field);
+  padding: 2px 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* -----------------------------------------------------------
+   Code Block Header (fold arrow + language + summary + copy)
+   ----------------------------------------------------------- */
+
+.cbt-header-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  vertical-align: middle;
+  pointer-events: auto;
+  font-size: var(--font-text-size);
+  line-height: var(--line-height-normal);
+  padding-bottom: 8px;
+}
+
+/* Fold arrow */
+.cbt-fold-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 3px;
+  transition: background-color 0.15s ease;
+}
+
+.cbt-fold-indicator:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+.cbt-fold-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--text-muted);
+  transition: transform 0.2s ease;
+  margin-top: 2px;
+}
+
+.cbt-fold-indicator.is-folded .cbt-fold-arrow {
+  transform: rotate(-90deg);
+  margin-top: 0;
+  margin-left: 2px;
+}
+
+/* Language label (shown only when folded) */
+.cbt-lang-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  border-radius: 4px;
+  background-color: var(--background-modifier-form-field);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-family: var(--font-monospace);
+  font-weight: 600;
+  text-transform: lowercase;
+  user-select: none;
+  flex-shrink: 0;
+  border: 1px solid var(--background-modifier-border);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Default: not clickable (clickToEditLanguage = false) */
+.cbt-lang-label {
+  cursor: default;
+}
+
+/* When clickToEditLanguage is enabled, make it clickable */
+.cbt-header-wrap.is-editable .cbt-lang-label {
+  cursor: pointer;
+}
+
+.cbt-header-wrap.is-editable .cbt-lang-label:hover {
+  background-color: var(--background-modifier-hover);
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+}
+
+/* Fold summary */
+.cbt-fold-summary {
+  color: var(--text-faint);
+  font-size: 0.85em;
+  font-style: italic;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Copy button */
+.cbt-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0.4;
+  transition: opacity 0.2s ease, background-color 0.15s ease;
+  position: relative;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.cbt-copy-btn:hover {
+  opacity: 0.9;
+  background-color: var(--background-modifier-hover);
+}
+
+.cbt-copy-btn.is-success .cbt-copy-icon {
+  display: none;
+}
+
+.cbt-copy-btn.is-success .cbt-check-icon {
+  display: flex;
+}
+
+.cbt-copy-icon,
+.cbt-check-icon {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cbt-check-icon {
+  display: none;
+}
+
+/* Copy icon — pure CSS */
+.cbt-copy-icon::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 12px;
+  border: 1.5px solid var(--text-muted);
+  border-radius: 2px;
+  position: relative;
+}
+
+.cbt-copy-icon::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 12px;
+  border: 1.5px solid var(--text-muted);
+  border-radius: 2px;
+  position: absolute;
+  margin-left: -3px;
+  margin-top: -3px;
+  background-color: var(--background-primary);
+}
+
+/* Check icon — pure CSS */
+.cbt-check-icon::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: solid var(--text-success);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+/* -----------------------------------------------------------
+   Block spacer widget — forces gap between expanded blocks
+   ----------------------------------------------------------- */
+
+.cbt-block-spacer {
+  height: 12px;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* -----------------------------------------------------------
+   Folded code block styling
+   ----------------------------------------------------------- */
+
+/* When folded, shrink the raw fence-line text to nothing
+   but keep the layout so our header widget stays visible. */
+/* 加强选择器确保覆盖 Obsidian/CodeMirror 默认样式 */
+.cm-editor .cm-content .cm-line.cbt-code-block-folded {
+  font-size: 0 !important;
+  color: transparent !important;
+  background-color: var(--background-secondary) !important;
+  border-radius: 6px !important;
+  padding-top: 2px !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Restore font-size inside our widgets */
+.cbt-code-block-folded .cbt-header-wrap,
+.cbt-code-block-folded .cbt-fold-indicator,
+.cbt-code-block-folded .cbt-lang-label,
+.cbt-code-block-folded .cbt-fold-summary,
+.cbt-code-block-folded .cbt-copy-btn {
+  font-size: var(--font-text-size);
+  color: var(--text-normal);
+}
+
+.cbt-code-block-folded .cbt-fold-summary {
+  color: var(--text-faint);
+}
+
+/* Folded content / end-fence: collapse to zero height but keep margin space */
+.cbt-folded-content {
+  height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  margin-bottom: 4px !important;
+}
+
+/* -----------------------------------------------------------
+   Line Numbers
+   ----------------------------------------------------------- */
+
+.cbt-line-number {
+  display: inline-block;
+  width: 3ch;
+  text-align: right;
+  margin-right: 12px;
+  color: var(--text-faint);
+  font-size: 0.85em;
+  font-family: var(--font-monospace);
+  user-select: none;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* -----------------------------------------------------------
+   Mobile touch support
+   ----------------------------------------------------------- */
+
+@media (hover: none) {
+  .cbt-fold-indicator {
+    width: 28px;
+    height: 28px;
+  }
+  .cbt-copy-btn {
+    opacity: 0.6;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* -----------------------------------------------------------
+   Settings Panel
+   ----------------------------------------------------------- */
+
+.cbt-custom-lang-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.cbt-custom-lang-item:last-child {
+  border-bottom: none;
+}
+
+.cbt-custom-lang-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-monospace);
+  color: #fff;
+  background-color: #64748b;
+  text-transform: uppercase;
+}
+
+.cbt-custom-lang-name {
+  flex: 1;
+  font-size: 14px;
+}
+
+.cbt-custom-lang-delete {
+  color: var(--text-error);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.cbt-custom-lang-delete:hover {
+  background-color: var(--background-modifier-error-hover);
+}
+
+.cbt-import-export-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}

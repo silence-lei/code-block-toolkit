@@ -1,0 +1,33 @@
+{
+  "name": "code-block-toolkit",
+  "version": "1.0.0",
+  "description": "Typora-style code block editing for Obsidian: language autocomplete, copy button, line numbers, folding and smart select.",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+    "version": "node version-bump.mjs && git add manifest.json versions.json"
+  },
+  "keywords": [
+    "obsidian",
+    "obsidian-plugin",
+    "code-block"
+  ],
+  "author": "silence_lei",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silence-lei/code-block-toolkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/silence-lei/code-block-toolkit/issues"
+  },
+  "devDependencies": {
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.36.0",
+    "esbuild": "0.25.5",
+    "obsidian": "latest",
+    "typescript": "^5.8.3"
+  }
+}
