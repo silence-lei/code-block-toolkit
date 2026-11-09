@@ -1,6 +1,6 @@
 {
   "name": "code-block-toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typora-style code block editing for Obsidian: language autocomplete, copy button, line numbers, folding and smart select.",
   "main": "main.js",
   "type": "module",

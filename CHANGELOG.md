@@ -4,6 +4,15 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [1.0.1] - 2026-11-09
+
+### Fixed
+
+- Use `window.setTimeout` for popout-window compatibility.
+- Remove an unnecessary type assertion in the settings migration.
+- Avoid returning a Promise from a void event-listener callback.
+- Bumped the release version so the community validator performs a fresh scan.
+
 ## [1.0.0] - 2026-11-09
 
 ### Added

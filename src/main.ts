@@ -26,7 +26,7 @@ function migrateLegacySettings(stored: Record<string, unknown> | null): Partial<
 	for (const legacy of [...Object.keys(LEGACY_SETTING_KEYS), 'customLanguageIcons']) {
 		delete migrated[legacy];
 	}
-	return migrated as unknown as Partial<CodeBlockToolkitSettings>;
+	return migrated as Partial<CodeBlockToolkitSettings>;
 }
 
 export default class CodeBlockToolkitPlugin extends Plugin {

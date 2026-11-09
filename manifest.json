@@ -1,7 +1,7 @@
 {
   "id": "code-block-toolkit",
   "name": "Code Block Toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.5.0",
   "description": "Typora-style code block editing experience with language autocomplete, copy button, line numbers, folding, and smart select.",
   "author": "silence_lei",

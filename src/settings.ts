@@ -189,12 +189,14 @@ export class CodeBlockToolkitSettingTab extends PluginSettingTab {
 				row.createDiv({ cls: 'cbt-custom-lang-name' }).setText(language.identifier);
 				const remove = row.createDiv({ cls: 'cbt-custom-lang-delete' });
 				remove.setText(t('delete'));
-				remove.addEventListener('click', async () => {
-					this.plugin.settings.customLanguages = this.plugin.settings.customLanguages
-						.filter((item) => item.identifier !== language.identifier);
-					await this.plugin.saveSettings();
-					this.plugin.updateLanguageSuggestions();
-					this.display();
+				remove.addEventListener('click', () => {
+					void (async () => {
+						this.plugin.settings.customLanguages = this.plugin.settings.customLanguages
+							.filter((item) => item.identifier !== language.identifier);
+						await this.plugin.saveSettings();
+						this.plugin.updateLanguageSuggestions();
+						this.display();
+					})();
 				});
 			}
 		}

@@ -183,7 +183,7 @@ class HeaderWidget extends WidgetType {
 		try {
 			await navigator.clipboard.writeText(code);
 			button.addClass('is-success');
-			setTimeout(() => button.removeClass('is-success'), 2000);
+			window.setTimeout(() => button.removeClass('is-success'), 2000);
 		} catch {
 			// Clipboard permission denied — leave the button unchanged.
 		}
