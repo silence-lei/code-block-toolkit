@@ -56,8 +56,6 @@ export class CodeBlockToolkitSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		new Setting(containerEl).setName('General').setHeading();
-
 		new Setting(containerEl)
 			.setName(t('settingShowAllLanguages'))
 			.setDesc(t('settingShowAllLanguagesDesc'))

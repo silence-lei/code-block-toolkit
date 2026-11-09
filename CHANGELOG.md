@@ -20,5 +20,6 @@ All notable changes to this project are documented here. The format follows
 ### Fixed
 
 - Settings headings now use `new Setting(...).setName(...).setHeading()` for a consistent Obsidian UI.
-- All widget DOM nodes now use Obsidian's `createEl` helpers instead of `document.createElement`.
+- All widget DOM nodes now use Obsidian's `createEl` helpers instead of raw DOM constructors.
 - Release workflow publishes build-provenance attestations for `main.js`, `manifest.json` and `styles.css`.
+- Removed the generic settings heading and an unreachable author link from the manifest.
